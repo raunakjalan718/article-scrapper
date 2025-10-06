@@ -10,21 +10,17 @@
             box-sizing: border-box;
         }
         
-        .gradient-bg {
-            background: linear-gradient(135deg, #8B9A46 0%, #556B2F 50%, #2F4F2F 100%);
-        }
-        
         .glass-effect {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
         }
         
         .result-card {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.95));
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(139, 154, 70, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.2);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
         
@@ -50,21 +46,21 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .olive-accent {
-            background: linear-gradient(135deg, #8B9A46, #6B7A3A);
+        .blue-accent {
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
         }
         
-        .olive-hover:hover {
-            background: linear-gradient(135deg, #9AAB50, #7A8B44);
+        .blue-hover:hover {
+            background: linear-gradient(135deg, #60A5FA, #3B82F6);
         }
         
-        .olive-focus:focus {
-            ring-color: rgba(139, 154, 70, 0.4);
+        .blue-focus:focus {
+            ring-color: rgba(59, 130, 246, 0.4);
         }
         
         .loading-spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid white;
+            border: 4px solid rgba(59, 130, 246, 0.3);
+            border-top: 4px solid #3B82F6;
             border-radius: 50%;
             width: 32px;
             height: 32px;
@@ -77,56 +73,56 @@
         }
     </style>
 </head>
-<body class="gradient-bg min-h-screen font-sans">
+<body class="bg-white min-h-screen font-sans">
     <div class="container mx-auto px-4 py-8">
         <div class="text-center mb-12">
-            <h1 class="text-5xl font-bold text-white mb-4">
+            <h1 class="text-5xl font-bold text-gray-800 mb-4">
                 📰 Article Extractor
             </h1>
-            <p class="text-xl text-white/80 max-w-2xl mx-auto">
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
                 Extract insights from any article with AI-powered analysis using Gemini 2.5 Pro
             </p>
         </div>
 
         <div class="max-w-4xl mx-auto glass-effect rounded-3xl p-8 shadow-2xl">
             <div class="mb-8">
-                <label for="articleUrl" class="block text-white text-lg font-semibold mb-4">
+                <label for="articleUrl" class="block text-gray-800 text-lg font-semibold mb-4">
                     🔗 Article URL
                 </label>
                 <input 
                     type="url" 
                     id="articleUrl" 
                     placeholder="https://example.com/article"
-                    class="w-full px-6 py-4 rounded-2xl border-0 bg-white/95 text-gray-800 text-lg placeholder-gray-500 focus:outline-none focus:ring-4 olive-focus transition-all duration-300 shadow-lg"
+                    class="w-full px-6 py-4 rounded-2xl border border-gray-300 bg-white text-gray-800 text-lg placeholder-gray-500 focus:outline-none focus:ring-4 blue-focus transition-all duration-300 shadow-lg"
                 >
             </div>
 
             <div class="mb-8">
-                <label class="block text-white text-lg font-semibold mb-4">
+                <label class="block text-gray-800 text-lg font-semibold mb-4">
                     ⚙️ Analysis Type
                 </label>
                 <div class="relative">
                     <button 
                         id="dropdownButton"
-                        class="w-full px-6 py-4 bg-white/95 rounded-2xl text-left text-gray-800 text-lg font-medium focus:outline-none focus:ring-4 olive-focus transition-all duration-300 flex items-center justify-between shadow-lg"
+                        class="w-full px-6 py-4 bg-white rounded-2xl text-left text-gray-800 text-lg font-medium focus:outline-none focus:ring-4 blue-focus transition-all duration-300 flex items-center justify-between shadow-lg border border-gray-300"
                     >
                         <span id="selectedOption">📋 Summary</span>
                         <svg id="dropdownIcon" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    <div id="dropdownMenu" class="absolute top-full left-0 right-0 mt-2 bg-white/98 rounded-2xl shadow-2xl border border-olive-200 z-10 hidden backdrop-blur-sm">
+                    <div id="dropdownMenu" class="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-200 z-10 hidden backdrop-blur-sm">
                         <div class="py-2">
-                            <button class="dropdown-option w-full px-6 py-3 text-left hover:bg-olive-50 transition-colors duration-200 text-gray-800 rounded-xl mx-2" data-value="summary">
+                            <button class="dropdown-option w-full px-6 py-3 text-left hover:bg-blue-50 transition-colors duration-200 text-gray-800 rounded-xl mx-2" data-value="summary">
                                 📋 Summary
                             </button>
-                            <button class="dropdown-option w-full px-6 py-3 text-left hover:bg-olive-50 transition-colors duration-200 text-gray-800 rounded-xl mx-2" data-value="key_points">
+                            <button class="dropdown-option w-full px-6 py-3 text-left hover:bg-blue-50 transition-colors duration-200 text-gray-800 rounded-xl mx-2" data-value="key_points">
                                 🎯 Key Points
                             </button>
-                            <button class="dropdown-option w-full px-6 py-3 text-left hover:bg-olive-50 transition-colors duration-200 text-gray-800 rounded-xl mx-2" data-value="structured">
+                            <button class="dropdown-option w-full px-6 py-3 text-left hover:bg-blue-50 transition-colors duration-200 text-gray-800 rounded-xl mx-2" data-value="structured">
                                 📊 Structured
                             </button>
-                            <button class="dropdown-option w-full px-6 py-3 text-left hover:bg-olive-50 transition-colors duration-200 text-gray-800 rounded-xl mx-2" data-value="entities">
+                            <button class="dropdown-option w-full px-6 py-3 text-left hover:bg-blue-50 transition-colors duration-200 text-gray-800 rounded-xl mx-2" data-value="entities">
                                 🏷️ Entities
                             </button>
                         </div>
@@ -137,7 +133,7 @@
             <div class="text-center mb-8">
                 <button 
                     id="extractButton"
-                    class="px-12 py-4 olive-accent olive-hover text-white text-xl font-bold rounded-2xl transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 olive-focus"
+                    class="px-12 py-4 blue-accent blue-hover text-white text-xl font-bold rounded-2xl transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 blue-focus"
                 >
                     ✨ Extract Analysis
                 </button>
@@ -145,12 +141,12 @@
 
             <div id="loadingState" class="hidden text-center py-8">
                 <div class="loading-spinner mx-auto mb-4"></div>
-                <p class="text-white text-lg">Processing with Gemini 2.5 Pro...</p>
+                <p class="text-gray-600 text-lg">Processing with Gemini 2.5 Pro...</p>
             </div>
 
             <div id="errorState" class="hidden text-center py-8">
-                <div class="bg-red-500/20 border border-red-500/30 rounded-2xl p-6 backdrop-blur-sm">
-                    <p class="text-white text-lg" id="errorMessage"></p>
+                <div class="bg-red-50 border border-red-200 rounded-2xl p-6">
+                    <p class="text-red-600 text-lg" id="errorMessage"></p>
                 </div>
             </div>
 
@@ -160,10 +156,10 @@
                         <span id="resultIcon" class="text-3xl mr-3">📋</span>
                         <h2 id="resultTitle" class="text-2xl font-bold text-gray-800">Summary</h2>
                         <div class="ml-auto flex gap-2">
-                            <button id="copyBtn" class="px-4 py-2 bg-olive-100 hover:bg-olive-200 text-olive-800 rounded-lg transition-colors duration-200">
+                            <button id="copyBtn" class="px-4 py-2 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-lg transition-colors duration-200">
                                 Copy
                             </button>
-                            <button id="downloadBtn" class="px-4 py-2 bg-olive-100 hover:bg-olive-200 text-olive-800 rounded-lg transition-colors duration-200">
+                            <button id="downloadBtn" class="px-4 py-2 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-lg transition-colors duration-200">
                                 Download
                             </button>
                         </div>
@@ -175,7 +171,7 @@
         </div>
 
         <div class="text-center mt-12">
-            <p class="text-white/60">
+            <p class="text-gray-500">
                 Powered by Gemini 2.5 Pro • Extract insights from any article
             </p>
         </div>

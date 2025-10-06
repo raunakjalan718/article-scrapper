@@ -185,7 +185,7 @@ class ArticleExtractor {
                 const cleanLine = line.replace(/^[•\-*]\s*/, '');
                 html += `
                     <li class="flex items-start">
-                        <span class="text-olive-600 mr-3 mt-1">•</span>
+                        <span class="text-blue-600 mr-3 mt-1">•</span>
                         <span>${cleanLine}</span>
                     </li>
                 `;
@@ -202,7 +202,7 @@ class ArticleExtractor {
         
         sections.forEach((section, index) => {
             if (section.trim()) {
-                const borderColors = ['border-olive-500', 'border-olive-600', 'border-olive-700', 'border-olive-800'];
+                const borderColors = ['border-blue-500', 'border-blue-600', 'border-blue-700', 'border-blue-800'];
                 const borderColor = borderColors[index % borderColors.length];
                 
                 const lines = section.trim().split('\n');
@@ -210,7 +210,7 @@ class ArticleExtractor {
                 const content = lines.slice(1).join(' ').trim();
                 
                 html += `
-                    <div class="border-l-4 ${borderColor} pl-4 bg-olive-50 rounded-r-lg py-3">
+                    <div class="border-l-4 ${borderColor} pl-4 bg-blue-50 rounded-r-lg py-3">
                         <h3 class="font-bold text-lg text-gray-800 mb-2">${title}</h3>
                         <p class="text-gray-700">${content}</p>
                     </div>
@@ -232,7 +232,7 @@ class ArticleExtractor {
                 const title = lines[0].replace(/^##\s*|\*\*|\*\*/g, '');
                 const items = lines.slice(1).filter(line => line.trim());
                 
-                const colors = ['bg-olive-100 text-olive-800', 'bg-olive-200 text-olive-900', 'bg-olive-300 text-olive-900', 'bg-olive-400 text-white'];
+                const colors = ['bg-blue-100 text-blue-800', 'bg-blue-200 text-blue-900', 'bg-blue-300 text-blue-900', 'bg-blue-400 text-white'];
                 const colorClass = colors[index % colors.length];
                 
                 html += `
@@ -310,7 +310,7 @@ class ArticleExtractor {
     showSuccess(button, message) {
         const originalText = button.textContent;
         button.textContent = message;
-        button.style.background = '#27ae60';
+        button.style.background = '#10B981';
         button.style.color = 'white';
         
         setTimeout(() => {
